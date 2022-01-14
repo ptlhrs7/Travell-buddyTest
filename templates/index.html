@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>
+        Travel Buddy
+    </title>
+    <link rel="icon" href="https://bit.ly/3K8iyt4" type="png">
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <script src="./static/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/e03eb121c9.js" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Travel Buddy</h1>
+
+        <input id="pac-input" type="text" name="searchbar" placeholder="Search for the place you like" class="controls"/>
+        <input type="submit" id="my_button"/>
+        <div id="map"></div> 
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFIxvsaRCjNMJ7Rxo3X37WukBZS6h-I74&callback=initAutocomplete&libraries=places&v=weekly"
+        async>
+        </script>
+    <!--/form-->
+    <div class="nev">
+        <button onclick="myGyms()" id="gyms" class="btn-hover color-7">GYMs</button>
+        <button onclick="myHotels()" id="hotels" class="btn-hover color-7">Hotels</button>
+        <button onclick="myRestaurant()" id="restaurant" class="btn-hover color-7">Restaurants</button>
+        <button onclick="myEntertainment()" id="entertainment" class="btn-hover color-7">Entertainment</button>
+        <button onclick="myAttraction()" id="attraction" class="btn-hover color-7">Attraction</button>
+    </div>
+
+    <div class="Infobox" id="InfoBox">
+        <div class="headtext">
+            <h2 id="headTitle"></h2>
+        </div>
+        <div class="CenterBox">
+            <div>
+                <div class="TopLocInfo">
+                    <div>
+                        <div class="TopLocInfo_grid">
+                            <div class="IMG"><img class="IMG" src="https://bit.ly/3K6lgiR"></div>
+                            <div class="LocName" id="LocName">{{ name }}</div>
+                            <div class="Reviews" id="Reviews">
+                                <div class="star">
+                                    <div class="star_grid">
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Description" id="LocDes">Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="TopLocInfo_grid">
+                            <div class="IMG"><img class="IMG" src="https://bit.ly/3K6lgiR"></div>
+                            <div class="LocName" id="LocName">Location Name</div>
+                            <div class="Reviews" id="Reviews">
+                                <div class="star">
+                                    <div class="star_grid">
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Description" id="LocDes">Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="TopLocInfo_grid">
+                        <div class="IMG"><img class="IMG" src="https://bit.ly/3K6lgiR"></div>
+                            <div class="LocName" id="LocName">Location Name</div>
+                            <div class="Reviews" id="Reviews">
+                                <div class="star">
+                                    <div class="star_grid">
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Description" id="LocDes">Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="TopLocInfo_grid">
+                        <div class="IMG"><img class="IMG" src="https://bit.ly/3K6lgiR"></div>
+                            <div class="LocName" id="LocName">Location Name</div>
+                            <div class="Reviews" id="Reviews">
+                                <div class="star">
+                                    <div class="star_grid">
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Description" id="LocDes">Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="TopLocInfo_grid">
+                        <div class="IMG"><img class="IMG" src="https://bit.ly/3K6lgiR"></div>
+                            <div class="LocName" id="LocName">Location Name</div>
+                            <div class="Reviews" id="Reviews">
+                                <div class="star">
+                                    <div class="star_grid">
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                        <div><i class="fas fa-star"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Description" id="LocDes">Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="TopLocInfo">
+                    <div>2
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>copyright © 2022 all rights reserved</p>
+    </div>
+
+</body>
+
+</html>
